@@ -7,8 +7,22 @@
 
 (defsrc
   caps
+  a    s    d    f         j    k    l    ;
+)
+
+(defalias
+  a (tap-hold-next-release 200 a lmet)
+  o (tap-hold-next-release 200 s lalt)
+  e (tap-hold-next-release 200 d lctl)
+  u (tap-hold-next-release 200 f lsft)
+
+  h (tap-hold-next-release 200 j rsft)
+  t (tap-hold-next-release 200 k rctl)
+  n (tap-hold-next-release 200 l ralt)
+  s (tap-hold-next-release 200 ; rmet)
 )
 
 (deflayer base
   esc
+  @a   @o   @e   @u        @h   @t   @n   @s
 )
