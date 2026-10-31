@@ -14,7 +14,9 @@ in
     enable = true;
 
     casks = [
+      "claude-code"
       "karabiner-elements"
+      "utm"
     ];
 
     onActivation = {
@@ -25,6 +27,9 @@ in
   environment.systemPackages = with pkgs; [
     git
     curl
+    awscli2
+    ssm-session-manager-plugin
+    google-cloud-sdk
     wget
     ripgrep
     fd
@@ -32,6 +37,8 @@ in
     eza
     bat
     zoxide
+    fnm
+    opencode
     t3code
     direnv
     nix-direnv
@@ -70,7 +77,13 @@ in
     fi
   '';
 
+  services.tailscale.enable = true;
+
   programs.zsh.enable = true;
+  programs.zsh.interactiveShellInit = ''
+    eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+    eval "$(${pkgs.fnm}/bin/fnm env --use-on-cd --shell zsh)"
+  '';
 
   system.defaults = {
     dock.autohide = true;

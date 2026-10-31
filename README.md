@@ -26,5 +26,8 @@ T3 Code is installed through Nix. Launch the desktop app with `t3code-desktop`,
 or run `t3` for its local web interface. Its source version is pinned in
 `modules/t3code.nix`; updating `flake.lock` alone does not change that version.
 
+Claude Code's native CLI is installed through the nix-darwin Homebrew cask list.
+Run `claude auth login` to sign in, then launch it with `claude` from a project directory.
+
 On first activation, if `~/.config/nvim` already exists and is not a symlink, it is backed up to
 `~/.config/nvim.bak-<timestamp>` before the LazyVim config is linked.
