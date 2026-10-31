@@ -57,6 +57,10 @@ in
     _7zz
     poppler-utils
     opensearch
+
+    # Container runtime: Colima's VM, plus the Docker CLI with Compose and Buildx
+    colima
+    docker-client
   ];
 
   environment.variables.JAVA_HOME = "${pkgs.jdk25.home}";

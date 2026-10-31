@@ -29,5 +29,9 @@ or run `t3` for its local web interface. Its source version is pinned in
 Claude Code's native CLI is installed through the nix-darwin Homebrew cask list.
 Run `claude auth login` to sign in, then launch it with `claude` from a project directory.
 
+Containers run through Colima, with the Docker CLI, Compose, and Buildx from Nix. Start its VM with
+`colima start --cpu 4 --memory 8 --vz-rosetta`; Colima remembers these settings, so later a plain
+`colima start` is enough. The VM stays stopped until you start it, including after a reboot.
+
 On first activation, if `~/.config/nvim` already exists and is not a symlink, it is backed up to
 `~/.config/nvim.bak-<timestamp>` before the LazyVim config is linked.
