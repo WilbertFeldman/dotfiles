@@ -40,30 +40,16 @@ in
     fnm
     opencode
     t3code
-    direnv
-    nix-direnv
     neovim
     lazygit
     tree-sitter
     ghostty-bin
     kmonad
 
-    # eDiscovery: JVM worker, document processing, and search
-    jdk25
-    uv
-    libreoffice-bin
-    tesseract
-    libpff
-    _7zz
-    poppler-utils
-    opensearch
-
     # Container runtime: Colima's VM, plus the Docker CLI with Compose and Buildx
     colima
     docker-client
   ];
-
-  environment.variables.JAVA_HOME = "${pkgs.jdk25.home}";
 
   system.activationScripts.extraActivation.text = ''
     nvim_source="${dotfilesDir}/nvim"
@@ -94,6 +80,12 @@ in
   '';
 
   services.tailscale.enable = true;
+
+  # Loads a project's dev shell on cd. nix-direnv caches it, so re-entering is instant.
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   programs.zsh.enable = true;
   programs.zsh.interactiveShellInit = ''

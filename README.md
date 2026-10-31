@@ -33,5 +33,8 @@ Containers run through Colima, with the Docker CLI, Compose, and Buildx from Nix
 `colima start --cpu 4 --memory 8 --vz-rosetta`; Colima remembers these settings, so later a plain
 `colima start` is enough. The VM stays stopped until you start it, including after a reboot.
 
+Tools a single project needs live in that project's own `flake.nix`. direnv loads its dev shell on
+`cd`, once you've run `direnv allow` in the project.
+
 On first activation, if `~/.config/nvim` already exists and is not a symlink, it is backed up to
 `~/.config/nvim.bak-<timestamp>` before the LazyVim config is linked.
