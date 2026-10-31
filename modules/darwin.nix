@@ -47,7 +47,19 @@ in
     tree-sitter
     ghostty-bin
     kmonad
+
+    # eDiscovery: JVM worker, document processing, and search
+    jdk25
+    uv
+    libreoffice-bin
+    tesseract
+    libpff
+    _7zz
+    poppler-utils
+    opensearch
   ];
+
+  environment.variables.JAVA_HOME = "${pkgs.jdk25.home}";
 
   system.activationScripts.extraActivation.text = ''
     nvim_source="${dotfilesDir}/nvim"
