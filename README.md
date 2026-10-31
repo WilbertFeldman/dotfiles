@@ -7,6 +7,7 @@ Personal macOS configuration managed with nix-darwin.
 - `flake.nix` defines the nix-darwin system.
 - `modules/darwin.nix` contains general macOS, package, Homebrew, and shell settings.
 - `modules/kmonad.nix` contains the KMonad overlay, `/etc/kmonad/config.kbd`, and launchd daemon.
+- `modules/t3code.nix` pins the T3 Code 0.1.2 source build and its dependencies.
 - `kmonad/config.kbd` is the KMonad keyboard config.
 - `nvim/` is the LazyVim starter config. nix-darwin links it to `~/.config/nvim` on activation.
 - `.claude/skills/` holds Matt Pocock's skill set (the 27 skills published in the
@@ -20,6 +21,10 @@ Personal macOS configuration managed with nix-darwin.
 sudo darwin-rebuild switch --flake /etc/nix-darwin#Wilberts-Laptop
 sudo darwin-rebuild switch --flake ~/dotfiles#Wilberts-Laptop
 ```
+
+T3 Code is installed through Nix. Launch the desktop app with `t3code-desktop`,
+or run `t3` for its local web interface. Its source version is pinned in
+`modules/t3code.nix`; updating `flake.lock` alone does not change that version.
 
 On first activation, if `~/.config/nvim` already exists and is not a symlink, it is backed up to
 `~/.config/nvim.bak-<timestamp>` before the LazyVim config is linked.

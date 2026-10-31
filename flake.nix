@@ -31,6 +31,7 @@
       modules = [
         ./modules/darwin.nix
         ./modules/kmonad.nix
+        ./modules/t3code.nix
 
         nix-homebrew.darwinModules.nix-homebrew
 

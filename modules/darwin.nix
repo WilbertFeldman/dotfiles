@@ -32,6 +32,7 @@ in
     eza
     bat
     zoxide
+    t3code
     direnv
     nix-direnv
     neovim
