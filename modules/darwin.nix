@@ -26,6 +26,7 @@ in
 
   environment.systemPackages = with pkgs; [
     git
+    gh
     curl
     awscli2
     ssm-session-manager-plugin
